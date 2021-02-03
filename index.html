@@ -37,13 +37,14 @@
     </div>
 
     <script>
+        const apiKey="c82c788988eae9921a697ad955a1ab50";
         document.getElementById('search-btn').addEventListener("click",function(){
             const cityName= document.getElementById("city-input").value;
             showWeatherData(cityName);
         })
         
         function showWeatherData(cityName){
-            fetch('http://api.openweathermap.org/data/2.5/weather?q='+cityName+'&units=metric&appid=c82c788988eae9921a697ad955a1ab50')
+            fetch('http://api.openweathermap.org/data/2.5/weather?q='+cityName+'&units=metric&appid='+apiKey)
             .then(res=>res.json())
             .then(data=>{
                 document.getElementById("city-name").innerText=data.name;
